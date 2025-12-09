@@ -4,18 +4,18 @@ metadata:
   name: nginx
   # these are replica set labels
   labels: 
-    {{ include "common.labels" . | indent 4 }}
+    {{- include "common.labels" . | indent 4 }}
 spec:
   replicas: {{ .Values.deployment.replicas }}
   selector:
     # these labels are used to select pods
     matchLabels: 
-      {{ include "common.labels" . | indent 6 }}
+      {{- include "common.labels" . | indent 6 }}
   # pod definition
   template:
     metadata:
       labels: 
-        {{ include "common.labels" . | indent 8 }}
+        {{- include "common.labels" . | indent 8 }}
     spec:
       containers:
       - name: nginx
